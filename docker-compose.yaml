@@ -1,0 +1,51 @@
+services:
+  ollama:
+    ports:
+      - 11434:11434
+    volumes:
+      - ./ollama:/root/.ollama
+    container_name: ollama
+    pull_policy: always
+    tty: true
+    restart: unless-stopped
+    image: ollama/ollama:${OLLAMA_DOCKER_TAG-latest}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
+    container_name: open-webui
+    volumes:
+      - ./openwebui:/app/backend/data
+    depends_on:
+      - ollama
+    ports:
+      - ${OPEN_WEBUI_PORT-3001}:8080
+    environment:
+      - "OLLAMA_API_BASE_URL=http://ollama:11434/api"
+      - "WEBUI_SECRET_KEY="
+    restart: unless-stopped
+  
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - SA_PASSWORD=sa
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./db-data:/var/opt/mssql/data
+
+  db-restore:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    depends_on:
+      - ms-sql-server
+    command: sqlcmd -S ms-sql-server -Q 'RESTORE DATABASE sampledb FROM DISK=' + '/var/opt/mssql/data/backup.bak'
+    volumes:
+      - ./backup.bak:/var/opt/mssql/data/backup.bak
+    environment:
+      - RESTORE_FILEPATH=/var/opt/mssql/data/backup.bak
