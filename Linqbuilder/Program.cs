@@ -1,58 +1,48 @@
-﻿using Microsoft.SemanticKernel;
+﻿using System;
+using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
-using Microsoft.Extensions.DependencyInjection;
-using OllamaSharp;
-using System.Text;
-
-// Configure the service collection
-var serviceCollection = new ServiceCollection();
-serviceCollection.AddSingleton<WeatherPlugin>(); // Register WeatherPlugin with the service collection
-
-// Initialize the Ollama API client
-var httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:11434") };
-var ollamaClient = new OllamaApiClient(httpClient, "llama3.2");
-
-var serviceProvider = serviceCollection.BuildServiceProvider();
+using Microsoft.SemanticKernel.Connectors.Ollama;
 
 var builder = Kernel.CreateBuilder();
+var modelId = "llama3.2";
+var endpoint = new Uri("http://localhost:11434");
 
 #pragma warning disable SKEXP0070
-builder.AddOllamaChatCompletion(ollamaClient);
+builder.Services.AddOllamaChatCompletion(modelId, endpoint);
 #pragma warning restore SKEXP0070
 
-// Import the plugins from the service provider
-builder.Plugins.AddFromObject(serviceProvider.GetRequiredService<WeatherPlugin>(), "WeatherPlugin");
+builder.Plugins.AddFromType<WeatherPlugin>();
 
 var kernel = builder.Build();
+var chatCompletionService = kernel.GetRequiredService<IChatCompletionService>();
 
-var chatService = kernel.GetRequiredService<IChatCompletionService>();
+#pragma warning disable SKEXP0070
+var settings = new OllamaPromptExecutionSettings { FunctionChoiceBehavior = FunctionChoiceBehavior.Auto() };
+#pragma warning restore SKEXP0070
 
-var history = new ChatHistory();
-history.AddSystemMessage(@"You are an expert Travel Planning Assistant");
+Console.WriteLine("""
+    Ask questions or give instructions to the copilot such as:
+    - Change the alarm to 8
+    - What is the current alarm set?
+    - Is the light on?
+    - Turn the light off please.
+    - Set an alarm for 6:00 am.
+    """);
 
-while (true)
+Console.Write("> ");
+
+string? input = null;
+while ((input = Console.ReadLine()) is not null)
 {
-    Console.Write(">> ");
-    var userMessage = Console.ReadLine();
-    if (string.IsNullOrWhiteSpace(userMessage))
-    {
-        break;
-    }
-
-    history.AddUserMessage(userMessage);
-
-    var stream = chatService.GetStreamingChatMessageContentsAsync(history, new PromptExecutionSettings
-    {
-        FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
-    }, kernel);
-
-    StringBuilder responseBuilder = new StringBuilder(string.Empty);
-    await foreach (var response in stream)
-    {
-        responseBuilder.Append(response.Content);
-        Console.Write(response.Content);
-    }
-
-    history.AddAssistantMessage(responseBuilder.ToString());
     Console.WriteLine();
+
+    try
+    {
+        ChatMessageContent chatResult = await chatCompletionService.GetChatMessageContentAsync(input, settings, kernel);
+        Console.Write($"\n>>> Result: {chatResult}\n\n> ");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error: {ex.Message}\n\n> ");
+    }
 }
