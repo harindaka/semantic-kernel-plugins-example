@@ -1,3 +1,6 @@
+docker/volumes/ollama/
+docker/volumes/openwebui/
+
 # Ignore build results
 [Dd]ebug/
 [Dd]ebugPublic/

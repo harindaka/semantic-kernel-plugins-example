@@ -1,10 +1,10 @@
 services:
   ollama:
     ports:
-      - 11434:11434
+      - ${OLLAMA_PORT-11434}:11434
     volumes:
-      - ./ollama:/root/.ollama
-      - ./entrypoint.sh:/entrypoint.sh
+      - ./docker/volumes/ollama:/root/.ollama
+      - ./docker/ollama/entrypoint.sh:/entrypoint.sh
     entrypoint: ["/usr/bin/bash", "/entrypoint.sh"]
     container_name: ollama
     pull_policy: always
@@ -19,10 +19,10 @@ services:
               count: 1
               capabilities: [gpu]
   open-webui:
-    image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-main}
+    image: ghcr.io/open-webui/open-webui:${WEBUI_DOCKER_TAG-0.5.18}
     container_name: open-webui
     volumes:
-      - ./openwebui:/app/backend/data
+      - ./docker/volumes/openwebui:/app/backend/data
     depends_on:
       - ollama
     ports:
