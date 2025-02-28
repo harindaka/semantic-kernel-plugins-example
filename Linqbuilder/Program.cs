@@ -1,12 +1,17 @@
-﻿using System;
-using System.Text;
-using Microsoft.SemanticKernel;
+﻿using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.Ollama;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 var builder = Kernel.CreateBuilder();
 var modelId = "llama3.2";
 var endpoint = new Uri("http://localhost:11434");
+
+builder.Services
+    .AddSingleton<ILoggerFactory, LoggerFactory>()
+    .AddSingleton(typeof(ILogger<>), typeof(Logger<>))
+    .AddLogging(builder => builder.AddDebug());
 
 #pragma warning disable SKEXP0070
 builder.Services.AddOllamaChatCompletion(modelId, endpoint);
