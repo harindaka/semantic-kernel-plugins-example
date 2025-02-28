@@ -4,68 +4,57 @@
 ## Sample prompt to try out
 
 ```text
-You: hi
+You: Hello there
 Assistant: 
-Hello! I'm a travel planning assistant. I can help you with flights, hotels, weather, and currency conversion. Please let me know what type of trip you're planning and where you'd like to go.
+Hello! I'm your travel planning assistant. I have access to various tools that can help you plan your trip, including flight information, hotel options, weather forecasts, and currency conversion rates.
 
-To assist you better, please specify the following information:
+To provide you with the best assistance, please let me know how I can help you today. Would you like to:
 
-* Destination city
-* Date (if you have it)
-* Travel dates
-* Budget (for hotel recommendations)
-* Where are you flying from?
-* What type of accommodation are you looking for?
+Book a flight
+Find a hotel
+Check the weather for a specific city on a particular date
+Get the current currency conversion rate between two currencies
 
-Feel free to provide any additional details that might help me assist you. I'll do my best to provide personalized travel planning suggestions and recommendations!
+Please feel free to ask, and I'll do my best to assist you!
 
-You: I'm flying to Colombo on the 29th of March 2025. I wonder how the weather would be over there.
+You: I'm planning to travel to Colombo on the 3rd March 2025. Can you tell me how the w
+eather would be over there on that date?
 Assistant: 
-The weather in Colombo on the 29th of March 2025 is expected to be sunny with a temperature of around 22.5 degrees Celsius.
+According to the weather forecast for Colombo on March 3rd, 2025, the temperature is expected to be around 22.5 degrees Celsius and it's going to be a sunny day!
 
-Please note that this information is based on my current data, and actual weather conditions may vary.
-
-To provide more accurate forecasts, I would like to ask for the city you're flying out from. Could you please specify your departure airport?
-
-Also, have you thought about accommodation options in Colombo?
-
-You: Well yes I will be flying out from Auckland New Zealand. What flights would be availab
-le?
+You: Great what flights are available on that date? I will be departing from Auckland
 Assistant: 
-There are several flights available from Auckland, New Zealand to Colombo on the 29th of March 2025.
+According to the flight information for March 3rd, 2025, there are several flights available from Auckland (AKL) to Colombo (CMB). Here are some options:
 
-Here are some options:
+* Qantas Airways flight QF140 departing at 6:00 AM
+* SriLankan Airlines flight UL607 departing at 5:10 PM
+* Singapore Airlines flight SQ468 departing at 10:10 PM
 
-* Qantas Airways Flight QF140, departing at 6:00 AM NZDT
-* SriLankan Airlines Flight UL607, departing at 5:10 PM NZDT
-* Singapore Airlines Flight SQ468, departing at 10:10 PM NZDT
+Please note that the departure times are subject to change and may not be available for all airlines. I recommend checking with the airlines or a flight comparison website for the most up-to-date information.
 
-Please note that the departure times are in New Zealand time zone (NZDT).
+Would you like me to help you book one of these flights or check for any other travel options?
 
-I'd like to ask for your travel dates again to confirm which flight you're interested in booking.
-
-You: It'd be the same date I mentioned earlier. I'd like to know what hotels I can stay in as well on that date?
+You: What hotels can I stay in once I'm there?
 Assistant: 
-On the 29th of March 2025, you have several hotel options to choose from in Colombo.
+According to the hotel information for Colombo, here are some top-rated hotels you may consider staying at:
 
-Here are a few recommendations:
+* Hilton Colombo: Located on Gardiner Road in Colombo 02, this hotel has a rating of 8.9 out of 10.
+* Shangri-La Hotel, Colombo: Situated on Galle Face in Colombo 02, this hotel has a rating of 9.9 out of 10.
+* Cinnamon Grand Colombo: Located on Galle Road in Colombo 03, this hotel has a rating of 9.2 out of 10.
 
-* Hilton Colombo: Located at 2 Gardiner Road, Colombo 02, with an average rating of 8.9.   
-* Shangri-La Hotel, Colombo: Situated at 1 Galle Face, Colombo 02, with an average rating of 9.9.
-* Cinnamon Grand Colombo: Located at 77 Galle Road, Colombo 03, with an average rating of 9.2.
+Please note that ratings can change over time, and it's always a good idea to check current reviews and pricWould you like me to help you with booking one of these hotels or explore other options?
 
-Please note that ratings can change over time and may vary depending on individual experiences.
+Would you like me to help you with booking one of these hotels or explore other options?
 
-Would you like me to help you book a hotel or provide more information about these options?
+You: Hmm what currency do they use over there? Also what is the conversion rate from NZD?
+Assistant:
+According to the currency conversion information, the current conversion rate from New Zealand Dollars (NZD) to Sri Lankan Rupees (LKR) is 1 NZD = 166.85 LKR.
 
+Please note that exchange rates can fluctuate frequently, so this rate may not be accurate at the time of your trip. I recommend checking with a currency exchange service or a financial institution for the most up-to-date conversion rates before your trip.     
 
-Also, I would like to check the currency conversion rates for Sri Lanka. Could you please tell me what currency you prefer to use?
+Would you like me to help you with anything else?
 
-You: What's the currency used over there and what's the conversion rate from NZD?
-Assistant: 
-The official currency of Sri Lanka is the Sri Lankan Rupee (LKR).
-
-As of my current data, the conversion rate from New Zealand Dollars (NZD) to Sri Lankan Rupees (LKR) is approximately 1 NZD = 166.85 LKR.
-
-Please note that exchange rates can fluctuate frequently and may vary depending on the source and date.
+You: Thank you bye
+Assistant:
+It was nice chatting with you! I hope you have a great trip to Colombo and enjoy your stay at one of the hotels, or maybe take a flight on Qantas Airways, SriLankan Airlines, or Singapore Airlines! Don't forget to check the weather forecast before you go. Safe travels, and farewell for now!
 ```

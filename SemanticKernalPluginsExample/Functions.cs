@@ -20,7 +20,7 @@ public class WeatherPlugin
 
     [KernelFunction("get_weather")]
     [Description("Retrieves the weather for a given date and city")]
-    public Task<WeatherInfo> GetWeather(DateTimeOffset dateTime, string city)
+    public Task<WeatherInfo> GetWeather(DateTime dateTime, string city)
     {       
         _logger.LogDebug($"{nameof(GetWeather)} called with {dateTime} and {city}");
 
@@ -52,7 +52,7 @@ public class FlightsPlugin
 
     [KernelFunction("get_flights")]
     [Description("Retrieves a list of available flights for a given date, origin and destination")]
-    public Task<IEnumerable<FlightInfo>> GetFlights(DateTimeOffset dateTime, string origin, string destination)
+    public Task<IEnumerable<FlightInfo>> GetFlights(DateTime dateTime, string origin, string destination)
     {
         _logger.LogDebug($"{nameof(GetFlights)} called with date: {dateTime}, origin: {origin}, destination: {destination}");
 
