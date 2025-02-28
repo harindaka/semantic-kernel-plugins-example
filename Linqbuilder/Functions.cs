@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
 
 public sealed record WeatherInfo
@@ -10,10 +11,19 @@ public sealed record WeatherInfo
 
 public class WeatherPlugin 
 {
+    private readonly ILogger<WeatherPlugin> _logger;
+
+    public WeatherPlugin(ILogger<WeatherPlugin> logger)
+    {
+        _logger = logger;
+    }
+
     [KernelFunction("get_weather")]
     [Description("Retrieves the weather for a given date and city")]
     public Task<WeatherInfo> GetWeather(DateTimeOffset dateTime, string city)
-    {        
+    {       
+        _logger.LogDebug($"{nameof(GetWeather)} called with {dateTime} and {city}");
+
         // Mock weather data look up
         return Task.FromResult(new WeatherInfo
         {
@@ -33,10 +43,19 @@ public sealed record FlightInfo
 
 public class FlightsPlugin 
 {
+    private readonly ILogger<FlightsPlugin> _logger;
+
+    public FlightsPlugin(ILogger<FlightsPlugin> logger)
+    {
+        _logger = logger;
+    }
+
     [KernelFunction("get_flights")]
     [Description("Retrieves a list of available flights for a given date, origin and destination")]
     public Task<IEnumerable<FlightInfo>> GetFlights(DateTimeOffset dateTime, string origin, string destination)
-    {        
+    {
+        _logger.LogDebug($"{nameof(GetFlights)} called with date: {dateTime}, origin: {origin}, destination: {destination}");
+
         // Mock flight look up
         return Task.FromResult(new List<FlightInfo> 
         {            
@@ -71,10 +90,19 @@ public sealed record HotelInfo
 
 public class HotelsPlugin 
 {
+    private readonly ILogger<HotelsPlugin> _logger;
+
+    public HotelsPlugin(ILogger<HotelsPlugin> logger)
+    {
+        _logger = logger;
+    }
+
     [KernelFunction("get_hotels")]
     [Description("Retrieves a list of hotels for a given city")]
     public Task<IEnumerable<HotelInfo>> GetHotels(string city)
-    {        
+    {
+        _logger.LogDebug($"{nameof(GetHotels)} called with city: {city}");
+
         // Mock hotels look up
         return Task.FromResult(new List<HotelInfo> 
         {            
@@ -109,10 +137,19 @@ public sealed record CurrencyConversionRate
 
 public class CurrencyPlugin
 {
+    private readonly ILogger<CurrencyPlugin> _logger;
+
+    public CurrencyPlugin(ILogger<CurrencyPlugin> logger)
+    {
+        _logger = logger;
+    }
+
     [KernelFunction("get_currency_conversion_rate")]
     [Description("Retrieves the conversion rate for a given source and target currency")]
     public Task<CurrencyConversionRate> GetCurrencyConversionRate(string sourceCurrency, string targetCurrency)
-    {        
+    {
+        _logger.LogDebug($"{nameof(GetCurrencyConversionRate)} called with sourceCurrency: {sourceCurrency}, targetCurrency: {targetCurrency}");
+
         // Mock currency conversion look up
         return Task.FromResult(new CurrencyConversionRate
         {
