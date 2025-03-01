@@ -18,7 +18,7 @@ Function Calling in the context of Semantic Kernel refers to the ability of the 
 - [`docker-compose.yaml`](docker-compose.yaml): Docker Compose configuration to set up the Ollama and Open WebUI services.
 - [`docker/ollama/entrypoint.sh`](docker/ollama/entrypoint.sh): Script to start the Ollama service and pull the Llama model.
 - [`SemanticKernalPluginsExample/Program.cs`](SemanticKernalPluginsExample/Program.cs): Main program file that sets up the Semantic Kernel and plugins.
-- [`SemanticKernalPluginsExample/Plugins.cs`](SemanticKernalPluginsExample/Functions.cs): Contains mock plugin implementations for retrieving weather, flights, hotels, and currency conversion rates which would be called by the AI.
+- [`SemanticKernalPluginsExample/Plugins.cs`](SemanticKernalPluginsExample/Plugins.cs): Contains mock plugin implementations for retrieving weather, flights, hotels, and currency conversion rates which would be called by the AI.
 
 ## Prerequisites
 
