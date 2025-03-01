@@ -1,7 +1,9 @@
 
-# Extending AI with Semantic Kernel Functions and a Locally Hosted Llama3.2 Model
+# Extending AI (a Locally Hosted Llama3.2 Model) with Semantic Kernel Functions
 
 This project demonstrates the fundamentals of building your own AI agent / co-pilot with the use of a locally hosted Llama3.2 model in conjuction with Microsoft Semantic Kernel and plugins which can be used to extend the capabilities of AI by getting it to invoke custom code based on prompt engineering and user input / queries.
+
+[![Extending AI (a Locally Hosted Llama3.2 Model) with Semantic Kernel Functions](https://img.youtube.com/vi/HzMQPx6Xhzw/0.jpg)](https://www.youtube.com/watch?v=HzMQPx6Xhzw)
 
 ## What is Semantic Kernel?
 
