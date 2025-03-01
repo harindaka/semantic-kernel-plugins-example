@@ -26,19 +26,19 @@ You will need Docker and Microsoft .Net 9 SDK installed to run this project.
 
 ## Usage
 
-1. Start the services using Docker Compose:
+- Start the services using Docker Compose:
 
 ```sh
 docker-compose up
 ```
 
-1. Run the main program:
+- Run the main program:
 
 ```sh
 dotnet run --project SemanticKernalPluginsExample
 ```
 
-1. You should now be able to interact with the AI Assistant via the console.
+- You should now be able to interact with the AI Assistant via the console.
 
 ## Additional Considerations
 
