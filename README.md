@@ -29,7 +29,7 @@ You will need Docker and Microsoft .Net 9 SDK installed to run this project.
 - Start the services using Docker Compose:
 
 ```sh
-docker-compose up
+docker compose up
 ```
 
 - Run the main program:
