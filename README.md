@@ -1,5 +1,5 @@
 
-# Extending AI (a Locally Hosted Llama3.2 Model) with Semantic Kernel Functions
+# Extending AI with Semantic Kernel Functions
 
 This project demonstrates the fundamentals of building your own copilot with the use of a locally hosted Llama3.2 model in conjuction with Microsoft Semantic Kernel and plugins which can be used to extend the capabilities of AI by getting it to invoke custom code based on prompt engineering and user input / queries. Watch the video below to see it in action:
 
