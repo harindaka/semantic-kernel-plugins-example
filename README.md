@@ -56,7 +56,7 @@ To configure Ollama, update the `Ollama` section in the `appsettings.json` file 
 
 #### Changing the AI Model used by Ollama
 
-You should be able to do this by updating the `docker/ollama/entrypoint.sh` and the `ModelId` setting in `appsettings.json`
+You should be able to do this by updating the `docker/ollama/entrypoint.sh` and the `modelId` setting in `appsettings.json`
 
 ## Usage
 
