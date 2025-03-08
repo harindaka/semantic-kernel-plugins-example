@@ -19,7 +19,7 @@ Function Calling in the context of Semantic Kernel refers to the ability of the 
 - [`docker-compose.yaml`](docker-compose.yaml): Docker Compose configuration to set up the Ollama and Open WebUI services.
 - [`docker/ollama/entrypoint.sh`](docker/ollama/entrypoint.sh): Script to start the Ollama service and pull the Llama model.
 - [`SemanticKernelPluginsExample/Program.cs`](SemanticKernelPluginsExample/Program.cs): Main program file that sets up the Semantic Kernel and plugins.
-- [`SemanticKernelPluginsExample/Plugins.cs`](SemanticKernelPluginsExample/Plugins.cs): Contains mock plugin implementations for retrieving weather, flights, hotels, and currency conversion rates which would be called by the AI.
+- [`SemanticKernelPluginsExample/Plugins.cs`](SemanticKernelPluginsExample/Plugins.cs): Contains mock plugin implementations for retrieving weather, flights, hotels, and currency conversion rates which are called by the AI based on user input.
 
 ## Prerequisites
 
@@ -53,6 +53,10 @@ To configure Azure OpenAI, update the `AzureOpenAi` section in the `appsettings.
 ### Setting Configuration for Ollama
 
 To configure Ollama, update the `Ollama` section in the `appsettings.json` file with your model ID, URL, and timeout settings. You'd only need to do this if you changed the endpoint settings for ollama in the docker-compose file. If not, the default settings in the configuration file should just work.
+
+#### Changing the AI Model used by Ollama
+
+You should be able to do this by updating the `docker/ollama/entrypoint.sh` and the `ModelId` setting in `appsettings.json`
 
 ## Usage
 
