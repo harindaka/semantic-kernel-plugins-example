@@ -77,7 +77,7 @@ dotnet run --project SemanticKernelPluginsExample
 or
 
 ```sh
-dotnet run --project SemanticKernelPluginsExample -- --aiService Ollama
+dotnet run --project SemanticKernelPluginsExample -- --ai-service Ollama
 ```
 
 Note that it might take some time for the AI to respond the first time while the model is being loaded depending on the processing power and I/O performance of your machine. The docker-compose file allows for the use of NVidia CUDA cores if a supporting GPU is available.
@@ -89,5 +89,5 @@ You should also be able to access open-webui via [http://localhost:3001/](http:/
 To use Azure OpenAI, run the program with the `AzureOpenAi` ai service option:
 
 ```sh
-dotnet run --project SemanticKernelPluginsExample -- --aiService AzureOpenAi
+dotnet run --project SemanticKernelPluginsExample -- --ai-service AzureOpenAi
 ```
