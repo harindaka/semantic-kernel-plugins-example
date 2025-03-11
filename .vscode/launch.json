@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/SemanticKernelPluginsExample/bin/Debug/net9.0/SemanticKernelPluginsExample.dll",
+      //"args": ["--ai-service", "AzureOpenAi"],
+      "cwd": "${workspaceFolder}/SemanticKernelPluginsExample",
+      "console": "integratedTerminal",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}
